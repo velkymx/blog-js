@@ -1,0 +1,32 @@
+{
+  "name": "blog-js",
+  "version": "0.0.1",
+  "description": "A simple blogging tool using expressjs, mongodb and node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/velkymx/blog-js.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/velkymx/blog-js/issues"
+  },
+  "homepage": "https://github.com/velkymx/blog-js#readme",
+  "dependencies": {
+    "@vue/cli": "^5.0.4",
+    "body-parser": "^1.20.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.3.1",
+    "morgan": "^1.10.0",
+    "passport": "^0.5.2"
+  }
+}
