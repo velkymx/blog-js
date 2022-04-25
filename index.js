@@ -7,12 +7,18 @@ const passport = require('passport');
 const jwt = require('jsonwebtoken');
 
 require('dotenv').config() // process.env
+
+if(process.env.DB_SERVER === 'local'){
+  mongoose.connect(`mongodb://127.0.0.1:27017/${process.env.DB_NAME}`);
+} else {
 mongoose.connect(
   `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_SERVER}/test?retryWrites=true`,
   {
         dbName: process.env.DB_NAME,
         useNewUrlParser: true
     });
+
+  }
 // Models
 
 const topics = require('./models/topics');
