@@ -19,7 +19,6 @@ const postsSchema = new Schema(
       sticky: Boolean,
     },
     account_id: String,
-    account_id: String,
     publishedAt: Date,
   },
   { timestamps: true }
