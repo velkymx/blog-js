@@ -27,7 +27,9 @@ const app = express();
 
 app.use(morgan("tiny"));
 app.use(cors());
+
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Setup passport auth
 

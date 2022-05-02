@@ -9,9 +9,61 @@ exports.index = function (req, res) {
 
 exports.create = function (req, res) {};
 
-exports.store = function (req, res) {};
+exports.store = function (req, res) {
+  // validateRegister
+  // save to DB
 
-exports.show = function (req, res) {};
+  let post = new Posts({
+    title: req.body.title,
+    slug: req.body.title
+      .toLowerCase()
+      .replace(/ /g, "_")
+      .replace(/[^\w-]+/g, ""),
+    summary: req.body.summary,
+    body: req.body.body,
+    feature_image: req.body.feature_image,
+    settings: {
+      active: true,
+      comment: true,
+      featured: false,
+      private: false,
+      private_password: "",
+      redirect: "",
+      sticky: false,
+    },
+    account_id: 1,
+  });
+
+  post
+    .save()
+    .then((response) => {
+      res.end();
+    })
+    .catch((err) => {
+      //When there are errors We handle them here
+      console.log(err);
+      res.send(400, "Error saving post");
+    });
+};
+
+exports.show = function (req, res) {
+  Posts.findOne(
+    {
+      slug: req.params.slug,
+      "settings.active": true,
+    },
+    function (err, post) {
+      if (err) {
+        console.log(err);
+        res.send(500, "Error loading post");
+      } else if (post === null) {
+        res.send(404, "Post not found");
+      } else {
+        res.send(post);
+      }
+    }
+  );
+};
 
 exports.edit = function (req, res) {};
 

@@ -4,7 +4,10 @@ const Schema = mongoose.Schema;
 const postsSchema = new Schema(
   {
     title: String,
-    slug: String,
+    slug: {
+      type: String,
+      unique: true,
+    },
     summary: String,
     body: String,
     feature_image: String,
