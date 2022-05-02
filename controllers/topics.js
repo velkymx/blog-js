@@ -1,36 +1,23 @@
 const Topics = require("../models/topics");
 
-exports.index = function (req,res) {
+exports.index = function (req, res) {
   Topics.find({}, function (err, response) {
     if (err) return handleError(err);
-      res.json(response);
+    res.json(response);
   });
-}
+};
 
-exports.create = function (req,res) {
+exports.create = function (req, res) {};
 
-}
+exports.store = function (req, res) {};
 
-exports.store = function (req,res) {
+exports.show = function (req, res) {};
 
+exports.edit = function (req, res) {};
 
-}
+exports.update = function (req, res) {};
 
-exports.show = function (req,res) {
-
-}
-
-exports.edit = function (req,res) {
-
-}
-
-exports.update = function (req,res) {
-
-}
-
-exports.destroy = function (req,res) {
-
-}
+exports.destroy = function (req, res) {};
 
 // Verb	URI	Action	Route Name
 // GET	/photos/{photo}/comments	index	photos.comments.index

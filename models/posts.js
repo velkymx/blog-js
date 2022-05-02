@@ -20,6 +20,7 @@ const postsSchema = new Schema(
     },
     account_id: String,
     publishedAt: Date,
+    topics: Array,
   },
   { timestamps: true }
 );
